@@ -6,9 +6,10 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Button
 import android.widget.TextView
+import id.ac.polbeng.nurifdayanti.androidkotlinapp.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
-
+    private lateinit var binding: ActivityMainBinding
     private lateinit var tvCounter: TextView
     private lateinit var btnAddNumber: Button
 
@@ -16,27 +17,25 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        tvCounter = findViewById(R.id.tvCounter)
-        btnAddNumber = findViewById(R.id.btnAddNumber)
-        
-
-        tvCounter.text = "1"
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+        binding.tvCounter.text = "1"
     }
 
     fun addNumber(v: View){
-        val currVal = tvCounter.text.toString().toInt()
+        val currVal = binding.tvCounter.text.toString().toInt()
         val nextVal = currVal + 1
-        tvCounter.text = nextVal.toString()
+        binding.tvCounter.text = nextVal.toString()
     }
     // Function to reset the counter
     fun resetNumber(v: View) {
-        tvCounter.text = "0"  // Reset counter to zero
+        binding.tvCounter.text = "0"  // Reset counter to zero
     }
 
 
     fun subtractNumber(v: View){
-        val currVal = tvCounter.text.toString().toInt()
+        val currVal = binding.tvCounter.text.toString().toInt()
         val nextVal = currVal - 1
-        tvCounter.text = nextVal.toString()
+        binding.tvCounter.text = nextVal.toString()
     }
 }

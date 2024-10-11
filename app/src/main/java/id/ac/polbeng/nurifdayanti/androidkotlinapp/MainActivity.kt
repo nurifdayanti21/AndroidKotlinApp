@@ -18,6 +18,7 @@ class MainActivity : AppCompatActivity() {
 
         tvCounter = findViewById(R.id.tvCounter)
         btnAddNumber = findViewById(R.id.btnAddNumber)
+        
 
         tvCounter.text = "1"
     }
@@ -25,6 +26,17 @@ class MainActivity : AppCompatActivity() {
     fun addNumber(v: View){
         val currVal = tvCounter.text.toString().toInt()
         val nextVal = currVal + 1
+        tvCounter.text = nextVal.toString()
+    }
+    // Function to reset the counter
+    fun resetNumber(v: View) {
+        tvCounter.text = "0"  // Reset counter to zero
+    }
+
+
+    fun subtractNumber(v: View){
+        val currVal = tvCounter.text.toString().toInt()
+        val nextVal = currVal - 1
         tvCounter.text = nextVal.toString()
     }
 }
